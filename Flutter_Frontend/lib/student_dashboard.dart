@@ -1,5 +1,24 @@
 import 'package:flutter/material.dart';
 
+/*
+// 🔰 Entry point of your app
+void main() {
+  runApp(StudentDashboard());
+}
+
+// 🔰 Wrapper to launch your screen
+class StudentDashboard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Student Dashboard',
+      home: DashboardScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+*/
+
 class DashboardScreen extends StatefulWidget {
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
