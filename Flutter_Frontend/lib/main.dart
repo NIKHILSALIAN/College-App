@@ -3,6 +3,7 @@ import 'splash_screen.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 import 'register_page.dart';
+import 'student_dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const MyHomePage(title: 'Vartak College App'),
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
+        '/student dashboard':(context) => StudentDashboard(),
       },
     );
   }
