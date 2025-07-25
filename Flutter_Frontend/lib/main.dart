@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterPage(),
         '/student dashboard':(context) => StudentDashboard(),
         '/teacher dashboard':(context) => TeacherDashboard(),
+      }
     );
   }
 }
