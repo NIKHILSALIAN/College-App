@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 /*
-// 🔰 Entry point of your app
+// Entry point of your app
 void main() {
   runApp(StudentDashboard());
 }
 
-// 🔰 Wrapper to launch your screen
+// Wrapper to launch your screen
 class StudentDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,12 @@ class StudentDashboard extends StatelessWidget {
 }
 */
 
-class DashboardScreen extends StatefulWidget {
+class StudentDashboard extends StatefulWidget {
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  State<StudentDashboard> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState extends State<StudentDashboard> {
   final Color darkPurple = Color(0xFF5A4FCF);
   final Color lightPurple = Color(0xFFF3F0FF);
   final Color redButton = Color(0xFFFF5F5F);     // Deactivate

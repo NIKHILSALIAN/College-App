@@ -4,6 +4,8 @@ import 'home_page.dart';
 import 'login_page.dart';
 import 'register_page.dart';
 import 'student_dashboard.dart';
+import 'teacher_dashboard.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -28,9 +30,15 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const MyHomePage(title: 'Vartak College App'),
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
+<<<<<<< HEAD
         '/student dashboard': (context) => StudentDashboard(),
       
       },
+=======
+        '/student dashboard':(context) => StudentDashboard(),
+        '/teacher dashboard':(context) => TeacherDashboard(),
+      }
+>>>>>>> 0ceb99f2626bcb5b313775b39f86a1c0993e3422
     );
   }
 }
