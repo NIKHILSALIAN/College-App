@@ -21,13 +21,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
         '/home': (context) => const MyHomePage(title: 'Vartak College App'),
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
-        '/student dashboard':(context) => StudentDashboard(),
+        '/student dashboard': (context) => StudentDashboard(),
+      
       },
     );
   }

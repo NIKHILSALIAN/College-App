@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'api_service.dart'; // ✅ Make sure this is imported to use ApiService
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -10,7 +11,6 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
 
-  // Controllers for each field
   final TextEditingController studentIdController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
@@ -18,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
-  final TextEditingController dobController = TextEditingController(); // "YYYY-MM-DD"
+  final TextEditingController dobController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController streamController = TextEditingController();
   final TextEditingController studentClassController = TextEditingController();
@@ -65,10 +65,33 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      // You will call API here in future
+                   //API CALL
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        print("✅ Registration form is ready to send.");
+                        final response = await ApiService.registerStudent({
+                          "studentId": studentIdController.text,
+                          "name": nameController.text,
+                          "address": addressController.text,
+                          "contactNumber": contactController.text,
+                          "email": emailController.text,
+                          "password": passwordController.text,
+                          "age": int.tryParse(ageController.text) ?? 0,
+                          "dob": dobController.text,
+                          "gender": genderController.text,
+                          "stream": streamController.text,
+                          "studentClass": studentClassController.text,
+                        });
+
+                        if (response.statusCode == 200 || response.statusCode == 201) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("✅ Registration successful")),
+                          );
+                          Navigator.pushReplacementNamed(context, '/login');
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("❌ Registration failed: ${response.body}")),
+                          );
+                        }
                       }
                     },
                     style: ElevatedButton.styleFrom(
