@@ -105,7 +105,7 @@ class LoginPage extends StatelessWidget {
 
                           // Navigate to dashboard or home
                           Navigator.pushReplacementNamed(context,
-                              '/dashboard'); // 🔁 Change this to your actual route
+                              '/student dashboard'); // 🔁 Change this to your actual route
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text("❌ Login failed: ${response
