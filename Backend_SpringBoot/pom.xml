@@ -61,7 +61,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Testing -->
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -73,6 +73,14 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Twilio SMS OTP -->
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>9.15.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>

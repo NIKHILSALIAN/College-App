@@ -45,4 +45,12 @@ public class StudentController {
     public String ping() {
         return "Backend is working!";
     }
+
+    @PostMapping("/forgot-password")
+public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> request) {
+    String emailOrPhone = request.get("emailOrPhone");
+    // Generate OTP, store temporarily or send SMS/email
+    return ResponseEntity.ok("OTP sent to your registered contact.");
+}
+
 }

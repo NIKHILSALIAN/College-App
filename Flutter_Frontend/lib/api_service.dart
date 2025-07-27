@@ -40,3 +40,12 @@ class ApiService {
     );
   }
 }
+// Forgot Password - POST /api/students/forgot-password
+  static Future<http.Response> forgotPassword(String emailOrPhone) async {
+final url = Uri.parse("$baseUrl/forgot-password");
+return await http.post(
+url,
+body: jsonEncode({"emailOrPhone": emailOrPhone}),
+headers: {"Content-Type": "application/json"},
+);
+}

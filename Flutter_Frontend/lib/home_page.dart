@@ -69,7 +69,7 @@ class MyHomePage extends StatelessWidget {
                     icon: const Icon(Icons.login),
                     label: const Text("Login dummy student dashboard"),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/student dashboard');
+                      Navigator.pushNamed(context, '/student-dashboard');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -92,7 +92,7 @@ class MyHomePage extends StatelessWidget {
                     icon: const Icon(Icons.login),
                     label: const Text("Login dummy Teacher dashboard"),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/teacher dashboard');
+                      Navigator.pushNamed(context, '/teacher-dashboard');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,

@@ -5,7 +5,7 @@ import 'login_page.dart';
 import 'register_page.dart';
 import 'student_dashboard.dart';
 import 'teacher_dashboard.dart';
-
+import 'forgot_password_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,14 +24,19 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
+      // ✅ Initial screen
       initialRoute: '/',
+
+      // ✅ Named Routes (no spaces)
       routes: {
         '/': (context) => const SplashScreen(),
         '/home': (context) => const MyHomePage(title: 'Vartak College App'),
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
-        '/student dashboard': (context) => StudentDashboard(),
-        '/teacher dashboard' :(context) => TeacherDashboard(),
+        '/student-dashboard': (context) => StudentDashboard(),
+        '/teacher-dashboard': (context) => TeacherDashboard(),
+        '/forgot-password': (context) => const ForgotPasswordPage(),
+
       },
     );
   }
