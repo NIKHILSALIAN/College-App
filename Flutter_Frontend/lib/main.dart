@@ -5,11 +5,6 @@ import 'login_page.dart';
 import 'register_page.dart';
 import 'student_dashboard.dart';
 import 'teacher_dashboard.dart';
-import 'student_main_screen.dart';
-import 'student_attendance.dart';
-import 'student_message_page.dart';
-import 'student_attendance_calender.dart';
-
 
 
 void main() {
@@ -37,11 +32,6 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterPage(),
         '/student dashboard': (context) => StudentDashboard(),
         '/teacher dashboard' :(context) => TeacherDashboard(),
-        '/student main screen': (context) => StudentMainScreen(),
-        '/student attendance': (context) => StudentAttendancePage(),
-        '/student message page':(context)=> StudentMessagesPage(),
-        '/student attendance calender':(context)=> StudentAttendanceCalendarPage(),
-
       },
     );
   }

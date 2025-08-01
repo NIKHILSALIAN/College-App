@@ -1,3 +1,5 @@
+import 'dart:math' as dev;
+
 import 'package:flutter/material.dart';
 
 class TeacherDashboard extends StatefulWidget {
@@ -20,7 +22,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            // Header Bar
+            // 🏫 Header Bar
             Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -47,7 +49,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
               ),
             ),
 
-            //  Teacher Info Section
+            // 👩‍🏫 Teacher Info Section
             Stack(
               children: [
                 Container(
@@ -88,14 +90,14 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
 
             const SizedBox(height: 20),
 
-            //  Get Attendance Button
+            // ✅ Get Attendance Button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    print("Attendance started for students!");
+                    dev.log("Attendance started for students!");
                     // You’ll call your Spring Boot backend here
                   },
                   style: ElevatedButton.styleFrom(
@@ -115,7 +117,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
 
             const SizedBox(height: 20),
 
-             // 2x2 Grid Options
+            // 📚 2x2 Grid Options
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -136,7 +138,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
         ),
       ),
 
-      // 6 Bottom Navigation
+      // 🔻 Bottom Navigation
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.indigo,
         unselectedItemColor: Colors.grey,
@@ -151,7 +153,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
     );
   }
 
-  //  Grid Item Widget
+  // 🔳 Grid Item Widget
   Widget buildGridCard(String title, IconData icon, Color bgColor) {
     return Container(
       decoration: BoxDecoration(
@@ -161,12 +163,12 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: bgColor, size: 40),
+          Icon(icon, color: bgColor, size: 30),
           const SizedBox(height: 8),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: bgColor),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: bgColor),
           ),
         ],
       ),
