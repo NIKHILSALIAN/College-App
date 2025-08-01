@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'api_service.dart'; // Make sure this is correctly imported
 
+import 'api_service.dart';
+
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
@@ -91,6 +93,7 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
+<<<<<<< HEAD
                     onPressed: () async {
                       final emailOrPhone = emailOrPhoneController.text.trim();
                       final password = passwordController.text.trim();
@@ -119,6 +122,44 @@ class LoginPage extends StatelessWidget {
                           SnackBar(content: Text("❌ Login failed: ${response.body}")),
                         );
                       }
+=======
+                    onPressed: () { //API CALL
+                      onPressed:
+                      () async {
+                        final emailOrPhone = emailOrPhoneController.text.trim();
+                        final password = passwordController.text.trim();
+
+                        if (emailOrPhone.isEmpty || password.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text("❗ All fields are required")),
+                          );
+                          return;
+                        }
+
+                        final response = await ApiService.loginStudent({
+                          "emailOrContact": emailOrPhone,
+                          // Make sure Spring Boot accepts this key
+                          "password": password,
+                        });
+
+                        if (response.statusCode == 200) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("✅ Login successful")),
+                          );
+
+                          // Navigate to dashboard or home
+                          Navigator.pushReplacementNamed(context,
+                              '/student dashboard'); // 🔁 Change this to your actual route
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("❌ Login failed: ${response
+                                .body}")),
+                          );
+                        }
+                      };
+
+>>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,

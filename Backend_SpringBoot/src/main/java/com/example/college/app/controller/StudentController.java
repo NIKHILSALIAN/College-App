@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
 @RestController
 @RequestMapping("api/students")
 @CrossOrigin(origins = "*")  // ✅ For Flutter to connect
@@ -47,6 +50,7 @@ public class StudentController {
     public String ping() {
         return "Backend is working!";
     }
+<<<<<<< HEAD
 
     @PostMapping("/forgot-password")
 public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> request) {
@@ -55,4 +59,6 @@ public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> re
     return ResponseEntity.ok("OTP sent to your registered contact.");
 }
 
+=======
+>>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
 }

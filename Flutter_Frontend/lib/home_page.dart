@@ -69,7 +69,11 @@ class MyHomePage extends StatelessWidget {
                     icon: const Icon(Icons.login),
                     label: const Text("Login dummy student dashboard"),
                     onPressed: () {
+<<<<<<< HEAD
                       Navigator.pushNamed(context, '/student-dashboard');
+=======
+                      Navigator.pushNamed(context, '/student dashboard');
+>>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -92,7 +96,11 @@ class MyHomePage extends StatelessWidget {
                     icon: const Icon(Icons.login),
                     label: const Text("Login dummy Teacher dashboard"),
                     onPressed: () {
+<<<<<<< HEAD
                       Navigator.pushNamed(context, '/teacher-dashboard');
+=======
+                      Navigator.pushNamed(context, '/teacher dashboard');
+>>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
