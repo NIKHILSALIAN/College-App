@@ -40,7 +40,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 final email = emailController.text.trim();
                 if (email.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("❗ Please enter your email or phone")),
+                    const SnackBar(content: Text("❗ Please enter phone Number")),
                   );
                   return;
                 }
