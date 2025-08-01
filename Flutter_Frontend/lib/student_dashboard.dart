@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 // Entry point of your app
 void main() {
@@ -33,6 +34,8 @@ class _DashboardScreenState extends State<StudentDashboard> {
 
   bool isAttendanceActive = false; // Track current state
 =======
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 class StudentDashboard extends StatefulWidget {
   const StudentDashboard({super.key});
 
@@ -42,12 +45,16 @@ class StudentDashboard extends StatefulWidget {
 
 class _StudentDashboardState extends State<StudentDashboard> {
   final Color lightPurple = const Color(0xFFF3F0FF);
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+<<<<<<< HEAD
 <<<<<<< HEAD
       body: Column(
         children: [
@@ -67,6 +74,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
 =======
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,11 +142,15 @@ class _StudentDashboardState extends State<StudentDashboard> {
                         ],
                       ),
                     ],
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
                   ),
                 ),
               ],
             ),
+<<<<<<< HEAD
 <<<<<<< HEAD
           ),
 
@@ -196,6 +209,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
           ),
           SizedBox(height: 20),
 =======
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 
             const SizedBox(height: 16),
 
@@ -264,12 +279,16 @@ class _StudentDashboardState extends State<StudentDashboard> {
           BottomNavigationBarItem(icon: Icon(Icons.groups), label: 'Classroom'),
           BottomNavigationBarItem(icon: Icon(Icons.event), label: 'Events'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
         ],
       ),
     );
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   Widget dashboardItem(IconData icon, String label) {
     return Container(
@@ -294,6 +313,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
             ),
           )
 =======
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
   // 🔳 Academic Tile Widget
   Widget buildAcademicCard(String title, IconData icon, Color bgColor) {
     return Container(
@@ -311,7 +332,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
             textAlign: TextAlign.center,
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13, color: bgColor),
           ),
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
         ],
       ),
     );

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 
 
@@ -15,6 +16,11 @@ class _DashboardScreenState extends State<TeacherDashboard> {
   bool isAttendanceActive = false; // Track current state
 =======
 import 'dart:math' as dev;
+=======
+import 'dart:developer' as dev;
+
+
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 
 import 'package:flutter/material.dart';
 
@@ -28,12 +34,16 @@ class TeacherDashboard extends StatefulWidget {
 class _TeacherDashboardState extends State<TeacherDashboard> {
   final Color lightPurple = const Color(0xFFF3F0FF);
   final Color greenButton = const Color(0xFF4CAF50);
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+<<<<<<< HEAD
 <<<<<<< HEAD
       body: Column(
         children: [
@@ -53,6 +63,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
 =======
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,11 +131,15 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                         ],
                       ),
                     ],
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
                   ),
                 ),
               ],
             ),
+<<<<<<< HEAD
 <<<<<<< HEAD
           ),
 
@@ -185,6 +201,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
           ),
           SizedBox(height: 20),
 =======
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 
             const SizedBox(height: 20),
 
@@ -195,7 +213,12 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    dev.log("Attendance started for students!");
+                    dev.log(
+                      'Attendance started for students!',
+                      name: 'AttendanceLogger', // optional name
+                    );
+
+                    //dev.log("Attendance started for students!");
                     // You’ll call your Spring Boot backend here
                   },
                   style: ElevatedButton.styleFrom(
@@ -246,12 +269,16 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
           BottomNavigationBarItem(icon: Icon(Icons.groups), label: 'Classroom'),
           BottomNavigationBarItem(icon: Icon(Icons.event), label: 'Events'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
         ],
       ),
     );
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         Widget dashboardItem(IconData icon, String label) {
           return Container(
@@ -281,6 +308,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
         }
       }
 =======
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
   // 🔳 Grid Item Widget
   Widget buildGridCard(String title, IconData icon, Color bgColor) {
     return Container(
@@ -304,4 +333,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
   }
 }
 
+<<<<<<< HEAD
 >>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f

@@ -124,7 +124,6 @@ class LoginPage extends StatelessWidget {
                       }
 =======
                     onPressed: () { //API CALL
-                      onPressed:
                       () async {
                         final emailOrPhone = emailOrPhoneController.text.trim();
                         final password = passwordController.text.trim();
@@ -145,7 +144,7 @@ class LoginPage extends StatelessWidget {
 
                         if (response.statusCode == 200) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("✅ Login successful")),
+                            const SnackBar(content: Text("Login successful")),
                           );
 
                           // Navigate to dashboard or home

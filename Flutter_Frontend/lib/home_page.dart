@@ -61,6 +61,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
 
+<<<<<<< HEAD
                 // LOGIN Button dummy
 
                 SizedBox(
@@ -115,6 +116,8 @@ class MyHomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
 
+=======
+>>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
                 // REGISTER Button
                 SizedBox(
                   width: double.infinity,
@@ -135,8 +138,6 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                 )
-
-
               ],
             ),
           ),
