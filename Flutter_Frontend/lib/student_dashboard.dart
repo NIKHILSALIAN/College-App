@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'student_attendance_calender.dart';
+
 
 class StudentDashboard extends StatefulWidget {
   const StudentDashboard({super.key});
@@ -19,7 +22,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            // 🏫 School Header
+            //  college Header
             Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -46,7 +49,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
               ),
             ),
 
-            // 👨‍🎓 Student Info Section
+            //  Student Info Section
             Stack(
               children: [
                 Container(
@@ -97,7 +100,12 @@ class _StudentDashboardState extends State<StudentDashboard> {
                     "Today's Schedule",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  Text('24 FEB 2025', style: TextStyle(color: Colors.grey[700])),
+                  //Text('24 FEB 2025', style: TextStyle(color: Colors.grey[700])),
+                  Text(
+                    DateFormat('dd MMM yyyy').format(DateTime.now()),
+                    style: TextStyle(color: Colors.grey[700]),
+                  ),
+
                 ],
               ),
             ),
@@ -119,7 +127,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
 
             const SizedBox(height: 20),
 
-            // 📚 Academics Grid
+            // Academics Grid
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -128,9 +136,22 @@ class _StudentDashboardState extends State<StudentDashboard> {
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
                   children: [
+                    // Wrap only Attendance card
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const StudentAttendanceCalendarPage(),
+                          ),
+                        );
+                      },
+                      child: buildAcademicCard('Attendance', Icons.verified_user, Colors.green),
+                    ),
+
+                   // buildAcademicCard('Attendance', Icons.verified_user, Colors.green),
                     buildAcademicCard('Time Table', Icons.calendar_today, Colors.blue),
-                    buildAcademicCard('Attendance', Icons.verified_user, Colors.green),
-                    buildAcademicCard('Homework', Icons.edit_note, Colors.teal),
+                    buildAcademicCard('Assignment', Icons.edit_note, Colors.teal),
                     buildAcademicCard('Fees', Icons.account_balance_wallet, Colors.orange),
                     buildAcademicCard('Messages', Icons.chat, Colors.purple),
                     buildAcademicCard('Exam', Icons.assessment, Colors.pink),
@@ -141,8 +162,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
           ],
         ),
       ),
-
-      // 🔻 Bottom Navigation Bar
+     /*
+      // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.indigo,
         unselectedItemColor: Colors.grey,
@@ -153,11 +174,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
           BottomNavigationBarItem(icon: Icon(Icons.event), label: 'Events'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
-      ),
+      ),*/
     );
   }
 
-  // 🔳 Academic Tile Widget
+  //  Academic Tile Widget
   Widget buildAcademicCard(String title, IconData icon, Color bgColor) {
     return Container(
       decoration: BoxDecoration(
@@ -167,12 +188,12 @@ class _StudentDashboardState extends State<StudentDashboard> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: bgColor, size: 30),
+          Icon(icon, color: bgColor, size: 40),
           const SizedBox(height: 8),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13, color: bgColor),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: bgColor),
           ),
         ],
       ),

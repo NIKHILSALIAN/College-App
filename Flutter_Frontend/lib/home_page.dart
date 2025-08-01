@@ -107,6 +107,30 @@ class MyHomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
 
+
+                // student screen for testing
+
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.login),
+                    label: const Text("student main screen"),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/student main screen');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.deepPurple,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      textStyle: const TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+
                 // REGISTER Button
                 SizedBox(
                   width: double.infinity,
@@ -127,6 +151,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                 )
+
 
 
               ],
