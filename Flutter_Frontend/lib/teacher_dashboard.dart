@@ -1,4 +1,6 @@
-import 'dart:math' as dev;
+import 'dart:developer' as dev;
+
+
 
 import 'package:flutter/material.dart';
 
@@ -97,7 +99,12 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    dev.log("Attendance started for students!");
+                    dev.log(
+                      'Attendance started for students!',
+                      name: 'AttendanceLogger', // optional name
+                    );
+
+                    //dev.log("Attendance started for students!");
                     // You’ll call your Spring Boot backend here
                   },
                   style: ElevatedButton.styleFrom(
