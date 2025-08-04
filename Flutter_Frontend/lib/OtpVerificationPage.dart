@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'api_service.dart';
 
 class OtpVerificationPage extends StatefulWidget {
-  final String emailOrPhone; // from previous screen
+  final String emailOrPhone;
 
   const OtpVerificationPage({super.key, required this.emailOrPhone});
 
@@ -12,7 +12,6 @@ class OtpVerificationPage extends StatefulWidget {
 
 class _OtpVerificationPageState extends State<OtpVerificationPage> {
   final TextEditingController otpController = TextEditingController();
-
   bool isLoading = false;
 
   @override
@@ -34,24 +33,31 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: isLoading ? null : () async {
-                setState(() => isLoading = true);
+              onPressed: isLoading
+                  ? null
+                  : () async {
+                      setState(() => isLoading = true);
 
-                final otp = otpController.text.trim();
-                final res = await ApiService.verifyOtp(widget.emailOrPhone, otp);
+                      final otp = otpController.text.trim();
+                      final res = await ApiService.verifyOtp(widget.emailOrPhone, otp);
 
-                setState(() => isLoading = false);
+                      setState(() => isLoading = false);
 
-                if (res.statusCode == 200) {
-                  // ✅ Navigate to dashboard
-                  Navigator.pushReplacementNamed(context, '/dashboard'); // or StudentHomePage()
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("❌ Invalid OTP")),
-                  );
-                }
-              },
-              child: isLoading ? const CircularProgressIndicator() : const Text("Verify OTP"),
+                      if (res.statusCode == 200) {
+                        Navigator.pushReplacementNamed(context, '/dashboard');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("❌ Invalid OTP")),
+                        );
+                      }
+                    },
+              child: isLoading
+                  ? const SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Text("Verify OTP"),
             ),
           ],
         ),

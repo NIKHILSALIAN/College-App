@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart'; // ✅ Correct import
+import 'face_capture_page.dart';    // ✅ Make sure this file exists
 import 'api_service.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  final List<CameraDescription> cameras; // ✅ store cameras
+
+  const RegisterPage({super.key, required this.cameras}); // ✅ receive cameras
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -17,14 +21,12 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController contactController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController dobController = TextEditingController(); // 📅 DOB Date Picker
+  final TextEditingController dobController = TextEditingController();
 
-  // Dropdown values
   String? selectedGender;
   String? selectedStream;
   String? selectedClass;
 
-  // Dependent class options
   final Map<String, List<String>> classOptions = {
     'Science': ['BSc IT', 'BSc CS', 'MSc IT', 'MSc CS'],
     'Commerce': ['BCom', 'MCom'],
@@ -63,10 +65,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 _buildInput(emailController, "Email", Icons.email),
                 _buildInput(passwordController, "Password", Icons.lock, isObscure: true),
 
-                // 📅 Date of Birth (with Date Picker)
                 _buildDatePicker(),
 
-                // 👤 Gender Dropdown
                 _buildDropdown(
                   value: selectedGender,
                   hint: "Select Gender",
@@ -75,7 +75,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   onChanged: (value) => setState(() => selectedGender = value),
                 ),
 
-                // 📚 Stream Dropdown
                 _buildDropdown(
                   value: selectedStream,
                   hint: "Select Stream",
@@ -84,12 +83,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   onChanged: (value) {
                     setState(() {
                       selectedStream = value;
-                      selectedClass = null; // reset class
+                      selectedClass = null;
                     });
                   },
                 ),
 
-                // 🏫 Class Dropdown (dependent on stream)
                 if (selectedStream != null)
                   _buildDropdown(
                     value: selectedClass,
@@ -101,7 +99,32 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 const SizedBox(height: 25),
 
-                // 🔘 Register Button
+                /// 📷 Capture Face Button
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                         builder: (_) => FaceCapturePage(cameras: widget.cameras), // ✅ pass cameras here
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.camera_alt),
+                    label: const Text("Capture Face"),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      side: const BorderSide(color: Colors.white),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 15),
+
+                /// 🔘 Register Button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -151,7 +174,6 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  // 📦 Reusable Text Input
   Widget _buildInput(TextEditingController controller, String hint, IconData icon, {bool isObscure = false}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -172,7 +194,6 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  // 📅 Date Picker Field
   Widget _buildDatePicker() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -206,7 +227,6 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  // 🔽 Generic Dropdown
   Widget _buildDropdown({
     required String? value,
     required String hint,
@@ -230,9 +250,9 @@ class _RegisterPageState extends State<RegisterPage> {
         dropdownColor: Colors.deepPurple.shade200,
         items: items
             .map((item) => DropdownMenuItem(
-          value: item,
-          child: Text(item, style: const TextStyle(color: Colors.black)),
-        ))
+                  value: item,
+                  child: Text(item, style: const TextStyle(color: Colors.black)),
+                ))
             .toList(),
         onChanged: onChanged,
         validator: (value) => value == null ? "Required" : null,
@@ -240,3 +260,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
+
+
+
+

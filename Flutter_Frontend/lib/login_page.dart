@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'api_service.dart'; // Make sure this is correctly imported
 
-import 'api_service.dart';
-
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
@@ -47,7 +45,7 @@ class LoginPage extends StatelessWidget {
                     hintText: 'Email or Contact Number',
                     hintStyle: const TextStyle(color: Colors.white70),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.2),
+                    fillColor: const Color.fromARGB(51, 255, 255, 255), // 51 ≈ 0.2 * 255
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -66,7 +64,7 @@ class LoginPage extends StatelessWidget {
                     hintText: 'Password',
                     hintStyle: const TextStyle(color: Colors.white70),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.2),
+                    fillColor: const Color.fromARGB(51, 255, 255, 255), // 51 ≈ 0.2 * 255
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -93,36 +91,6 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-<<<<<<< HEAD
-                    onPressed: () async {
-                      final emailOrPhone = emailOrPhoneController.text.trim();
-                      final password = passwordController.text.trim();
-
-                      if (emailOrPhone.isEmpty || password.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("❗ All fields are required")),
-                        );
-                        return;
-                      }
-
-                      final response = await ApiService.loginStudent({
-                        "emailOrContact": emailOrPhone,
-                        "password": password,
-                      });
-
-                      if (response.statusCode == 200) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("✅ Login successful")),
-                        );
-
-                        // ✅ Navigate to student dashboard after login
-                        Navigator.pushReplacementNamed(context, '/student-dashboard');
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("❌ Login failed: ${response.body}")),
-                        );
-                      }
-=======
                     onPressed: () { //API CALL
                       () async {
                         final emailOrPhone = emailOrPhoneController.text.trim();
@@ -158,7 +126,6 @@ class LoginPage extends StatelessWidget {
                         }
                       };
 
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,

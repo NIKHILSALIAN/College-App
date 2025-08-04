@@ -1,28 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import 'package:flutter/material.dart';
-
-
-class TeacherDashboard extends StatefulWidget {
-  @override
-  State<TeacherDashboard> createState() => _DashboardScreenState();
-}
-
-class _DashboardScreenState extends State<TeacherDashboard> {
-  final Color darkPurple = Color(0xFF5A4FCF);
-  final Color lightPurple = Color(0xFFF3F0FF);
-  final Color greenButton = Color(0xFF4CAF50);  
-
-  bool isAttendanceActive = false; // Track current state
-=======
-import 'dart:math' as dev;
-=======
 import 'dart:developer' as dev;
-
-
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
-
-import 'package:flutter/material.dart';
 
 class TeacherDashboard extends StatefulWidget {
   const TeacherDashboard({super.key});
@@ -32,44 +9,18 @@ class TeacherDashboard extends StatefulWidget {
 }
 
 class _TeacherDashboardState extends State<TeacherDashboard> {
+  final Color darkPurple = const Color(0xFF5A4FCF);
   final Color lightPurple = const Color(0xFFF3F0FF);
   final Color greenButton = const Color(0xFF4CAF50);
-<<<<<<< HEAD
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
-=======
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-<<<<<<< HEAD
-<<<<<<< HEAD
-      body: Column(
-        children: [
-
-          // Top App Bar
-          Container(
-            color: darkPurple,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-            child: Row(
-              children: [
-                Icon(Icons.menu, color: Colors.white, size: 28),
-                SizedBox(width: 16),
-                Text(
-                  'Teacher Dashboard',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-=======
-=======
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             // 🏫 Header Bar
             Padding(
               padding: const EdgeInsets.all(16),
@@ -131,106 +82,38 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                         ],
                       ),
                     ],
-<<<<<<< HEAD
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
-=======
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
                   ),
                 ),
               ],
             ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-          ),
-
-          SizedBox(height: 20),
-
-          // Simple Button
-          Container(
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {
-              // This is where you will later call Spring Boot API
-              print("Attendance getting started!");
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: greenButton, 
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              padding: EdgeInsets.symmetric(vertical: 14),
-            ),
-            child: Text(
-              'Get Attendance',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-
-
-          SizedBox(height: 20),
-
-          // 4 Grid Components
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: GridView.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                children: [
-                 
-                  dashboardItem(Icons.person, 'Profile'),
-                  dashboardItem(Icons.book, 'Catalougue'),
-                  dashboardItem(Icons.calendar_month, 'Timetable'),
-                  dashboardItem(Icons.campaign, 'Notice'),
-                ],
-              ),
-            ),
-          ),
-
-          Divider(
-            color: darkPurple,
-            thickness: 2,
-            indent: 20,
-            endIndent: 20,
-          ),
-          SizedBox(height: 20),
-=======
-=======
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
 
             const SizedBox(height: 20),
 
             // ✅ Get Attendance Button
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
                     dev.log(
                       'Attendance started for students!',
-                      name: 'AttendanceLogger', // optional name
+                      name: 'AttendanceLogger',
                     );
-
-                    //dev.log("Attendance started for students!");
-                    // You’ll call your Spring Boot backend here
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: greenButton,
-                    padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(16),
                     ),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
                   child: const Text(
                     'Get Attendance',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -269,47 +152,11 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
           BottomNavigationBarItem(icon: Icon(Icons.groups), label: 'Classroom'),
           BottomNavigationBarItem(icon: Icon(Icons.event), label: 'Events'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-<<<<<<< HEAD
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
-=======
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
         ],
       ),
     );
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Widget dashboardItem(IconData icon, String label) {
-          return Container(
-            decoration: BoxDecoration(
-              color: lightPurple,
-              border: Border.all(color: darkPurple, width: 2),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(icon, color: darkPurple, size: 40),
-                SizedBox(height: 10),
-                Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: darkPurple,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
-                  ),
-                )
-              ],
-            ),
-          );
-        }
-      }
-=======
-=======
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
   // 🔳 Grid Item Widget
   Widget buildGridCard(String title, IconData icon, Color bgColor) {
     return Container(
@@ -332,8 +179,3 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
     );
   }
 }
-
-<<<<<<< HEAD
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
-=======
->>>>>>> 35720dde050e3622a528b3cf4c220bcb8d26fa1f
