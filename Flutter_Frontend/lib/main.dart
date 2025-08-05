@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart'; // ✅ import camera package
+
 import 'splash_screen.dart';
 import 'home_page.dart';
 import 'login_page.dart';
@@ -6,8 +8,13 @@ import 'register_page.dart';
 import 'student_dashboard.dart';
 import 'teacher_dashboard.dart';
 
-void main() {
-  runApp(const MyApp());
+late List<CameraDescription> cameras; // ✅ define globally
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // ✅ ensure binding
+  cameras = await availableCameras(); // ✅ get available cameras
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,15 +29,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-
       initialRoute: '/',
-
-      // ✅ Named Routes (no spaces)
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => SplashScreen(),
         '/home': (context) => const MyHomePage(title: 'Vartak College App'),
         '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
+        '/register': (context) => RegisterPage(cameras: cameras),
         '/student_dashboard': (context) => StudentDashboard(),
         '/teacher_dashboard': (context) => TeacherDashboard(),
       },
