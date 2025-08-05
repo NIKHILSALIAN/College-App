@@ -9,6 +9,10 @@ from embed import get_embedding  # Your embedding function (takes cropped face)
 
 app = FastAPI()
 
+@app.get("/")
+async def home():
+    return {"message": "FastAPI is running successfully!"}
+
 @app.post("/process-frame/")
 async def process_frame(file: UploadFile = File(...)):
     try:
@@ -45,3 +49,20 @@ async def process_frame(file: UploadFile = File(...)):
 
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
+import requests
+import json
+
+def send_embedding_to_java(user_id, embedding):
+    url = "http://localhost:8080/api/students/embedding"  # Java Spring Boot endpoint
+    data = {
+        "userId": user_id,
+        "embedding": embedding.tolist() if hasattr(embedding, "tolist") else embedding
+    }
+    headers = {"Content-Type": "application/json"}
+    
+    try:
+        response = requests.post(url, data=json.dumps(data), headers=headers)
+        print("Sent to Java backend:", response.status_code, response.text)
+    except Exception as e:
+        print("Error sending to Java backend:", e)
