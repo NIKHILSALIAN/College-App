@@ -1,13 +1,18 @@
 package com.example.college.app.controller;
 
-import com.example.college.app.service.OtpService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Random;
 
-// 📦 Add this class to handle sending + verifying OTP
+import org.springframework.beans.factory.annotation.Autowired; // ✅ DTO with getEmailOrPhone()
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.college.app.dto.OtpRequest;
+import com.example.college.app.service.OtpService;
+
 @RestController
 @RequestMapping("/api/otp")
 public class OtpController {
@@ -15,7 +20,6 @@ public class OtpController {
     @Autowired
     private OtpService otpService;
 
-    // ✅ Send OTP to user
     @PostMapping("/send")
     public ResponseEntity<String> sendOtp(@RequestParam String phone) {
         String otp = String.format("%04d", new Random().nextInt(10000));  // Generate 4-digit OTP
@@ -23,9 +27,9 @@ public class OtpController {
         return ResponseEntity.ok("OTP sent successfully ✅");
     }
 
-    // ✅ Verify OTP from user
     @PostMapping("/verify")
     public ResponseEntity<String> verifyOtp(@RequestBody OtpRequest request) {
+        // 🔁 Use correct method name from DTO
         boolean isVerified = otpService.verifyOtp(request.getEmailOrPhone(), request.getOtp());
         if (isVerified) {
             return ResponseEntity.ok("OTP verified ✅ - Login successful!");

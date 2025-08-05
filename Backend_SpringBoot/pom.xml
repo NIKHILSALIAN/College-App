@@ -9,95 +9,73 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.5.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <groupId>com.example</groupId>
     <artifactId>college-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>College-App</name>
-<<<<<<< HEAD
-=======
     <description>Created a college app for Attendance</description>
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
 
     <properties>
         <java.version>21</java.version>
+        <lombok.version>1.18.30</lombok.version>
     </properties>
 
     <dependencies>
-<<<<<<< HEAD
         <!-- Spring Boot Core -->
-=======
-        <!-- ✅ Missing dependency added -->
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-<<<<<<< HEAD
-        <!-- Web, Security, JPA, MySQL -->
-=======
-        <!-- JPA for database -->
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-<<<<<<< HEAD
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-=======
-        <!-- Spring Security -->
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
-<<<<<<< HEAD
-=======
         <!-- Web dependency for REST APIs -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- JPA for database -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- MySQL connector -->
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-<<<<<<< HEAD
-=======
         <!-- Lombok for boilerplate code -->
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-<<<<<<< HEAD
-        <!-- ✅ Twilio for SMS OTP -->
+        <!-- Twilio for OTP via SMS -->
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
-            <version>8.31.1</version> 
+            <version>8.31.1</version>
         </dependency>
 
+        <!-- JPA annotations -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
-
-=======
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
         <!-- Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -114,16 +92,14 @@
 
     <build>
         <plugins>
-<<<<<<< HEAD
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-=======
-            <!-- Compiler plugin to support annotation processors like Lombok -->
+            <!-- Compiler plugin with Lombok support -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
@@ -138,15 +114,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
->>>>>>> d6e1685946fd7fdc05da35e8afa640cb87917bb9
             </plugin>
         </plugins>
     </build>
